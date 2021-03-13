@@ -33,3 +33,18 @@ returns profile of first witness:
 	address_street_name = Northwestern Dr
 	ssn = 111564949
 */
+
+SELECT *
+	FROM person
+	WHERE address_street_name = "Franklin Ave"
+		AND name LIKE "%Annabel%"
+
+/*
+returns profile of second witness:
+	id = 16371
+	name = Annabel Miller
+	license_id = 490173
+	address_number = 103
+	address_street_name = Franklin Ave
+	ssn = 318771143
+*/
