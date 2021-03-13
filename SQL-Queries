@@ -17,3 +17,19 @@ Returns description:
   The first witness lives at the last house on "Northwestern Dr". 
   The second witness, named Annabel, lives somewhere on "Franklin Ave".
 */
+
+SELECT * 
+FROM person
+WHERE address_street_name = "Northwestern Dr"
+ORDER BY address_number DESC
+LIMIT 1
+
+/*
+returns profile of first witness:
+	id = 14887
+	name = Morty Shapiro
+	license_id = 118009
+	address_number = 4919
+	address_street_name = Northwestern Dr
+	ssn = 111564949
+*/
