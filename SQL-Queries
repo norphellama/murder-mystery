@@ -7,7 +7,7 @@
 
 SELECT * 
 FROM sqlite_master
-/* Returns names of all avaiable tables and their columns:
+/* returns names of all avaiable tables and their columns:
 	crime_scene_report: date, type, description, city
 	drivers_license: id, age, height, eye_color, hair_color, gender, plate_number, car_make, car_model
 	person: id, name, license_id, address_number, address_street_name, ssn
@@ -24,7 +24,7 @@ FROM crime_scene_report
 WHERE date = 20180115
 	AND city = "SQL City"
 	AND type = "murder"	
-/* Returns description:
+/* returns description:
  	Security footage shows that there were 2 witnesses. 
   	The first witness lives at the last house on "Northwestern Dr". 
  	The second witness, named Annabel, lives somewhere on "Franklin Ave".
@@ -64,7 +64,7 @@ SELECT *
 FROM facebook_event_checkin
 WHERE person_id = 118009
 	OR person_id = 16371
-/* Returns facebook_event_checkin of second witness:
+/* returns facebook_event_checkin of second witness:
 	person_id = 16371
 	event_id = 4719
 	event_name = The Funky Grooves Tour	
@@ -76,7 +76,7 @@ SELECT *
 FROM drivers_license
 WHERE id = 118009
 	OR id = 16371
-/* Returns drivers_liscence of first person:
+/* returns drivers_liscence of first person:
 	id = 118009
 	age = 64
 	height = 84	
@@ -93,7 +93,7 @@ SELECT *
 from interview
 WHERE person_id = 118009
 	OR person_id = 16371
-/* Returns transcript of second witness: 
+/* returns transcript of second witness: 
 	I saw the murder happen, and I recognized the killer 
 	from my gym when I was working out last week on January the 9th.
 */
