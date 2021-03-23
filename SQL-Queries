@@ -156,12 +156,13 @@ FROM interview as t1
 JOIN suspects_info as t2
 	ON t1.person_id = t2.person_id
 
-/* returns transcript of remaining suspects:
-	I was hired by a woman with a lot of money. 
-	I know she's around 5'5" (65") or 5'7"(67").
-	She has red hair and she drives a Tesla Model S. 
-	I know that she attended the SQL Symphony Concert 
-	3 times in December 2017.
+/* returns information of remaining suspect:
+	name: Jeremy Bowers
+	transcript: 	"I was hired by a woman with a lot of money. 
+			I know she's around 5'5" (65") or 5'7"(67").
+			She has red hair and she drives a Tesla Model S. 
+			I know that she attended the SQL Symphony Concert 
+			3 times in December 2017."
 */
 
 
