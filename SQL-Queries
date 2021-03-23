@@ -167,7 +167,7 @@ JOIN suspects_info as t2
 
 
 
-/* New table showing person_id and number of times they visited the event in December 2007*/
+/* New table showing person_id and number of times they visited the event in December 2007 */
 WITH suspect_event AS(
 	SELECT person_id, COUNT(*) AS times_attend
 	FROM facebook_event_checkin
@@ -176,14 +176,14 @@ WITH suspect_event AS(
 	GROUP BY person_id
 ),
 
-/*New table with only people who attended the event three times*/
+/* New table with only people who attended the event three times */
 suspect_info AS(
 	SELECT person_id as id
 	FROM suspect_event
   	WHERE times_attend = 3
 ),
 
-/*New table with full personal info about they people who attended the event three times*/
+/* New table with full personal info about they people who attended the event three times */
 suspect_fullInfo AS(
 	SELECT person.id, name, license_id	
 	FROM person
