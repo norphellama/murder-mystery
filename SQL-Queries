@@ -166,3 +166,40 @@ JOIN suspects_info as t2
 */
 
 
+
+/* New table showing person_id and number of times they visited the event in December 2007*/
+WITH suspect_event AS(
+	SELECT person_id, COUNT(*) AS times_attend
+	FROM facebook_event_checkin
+	WHERE event_name = "SQL Symphony Concert"
+		AND date >= 20171201 AND date < 20180101
+	GROUP BY person_id
+),
+
+/*New table with only people who attended the event three times*/
+suspect_info AS(
+	SELECT person_id as id
+	FROM suspect_event
+  	WHERE times_attend = 3
+),
+
+/*New table with full personal info about they people who attended the event three times*/
+suspect_fullInfo AS(
+	SELECT person.id, name, license_id	
+	FROM person
+	JOIN suspect_info
+		ON person.id = suspect_info.id
+)
+
+SELECT *
+FROM suspect_fullInfo
+JOIN drivers_license
+	ON suspect_fullInfo.license_id = drivers_license.id
+/* Returns the driver's liscence information and more personal info about attendees (only one person had a registered vehicle)*/
+	name: Miranda Priestly
+	height: 66
+	hair_color: red
+	gender: female
+	car_make: Tesla
+	car_model: Model S
+*/
