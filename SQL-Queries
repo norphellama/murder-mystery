@@ -99,3 +99,50 @@ WHERE person_id = 118009
 */
 
 
+/* New table with only second witness's gym membership information*/
+WITH witness_gym_membership AS(
+	SELECT id, person_id
+	FROM get_fit_now_member
+	WHERE person_id = 16371 
+)
+SELECT *
+FROM get_fit_now_check_in as t1
+JOIN witness_gym_membership as t2
+	ON t1.membership_id = t2.id
+/* returns information on when second witness was in gym:
+	check_in_date = 20180109
+	check_in_time = 1600
+	check_out_time = 1700
+*/
+
+/* New table with member_id of gym members who both entered before witness left
+and left after witness entered gym (hence shared some time with witness)*/
+WITH suspects_gym_info AS(
+	SELECT membership_id
+	FROM get_fit_now_check_in
+	WHERE check_in_time < 1700
+		AND check_out_time > 1600
+		AND membership_id != 90081
+),
+
+/* New table showing person_id and name of filtered gym member_ids*/
+suspects_info AS(
+	SELECT person_id, name
+	FROM get_fit_now_member as t1
+	JOIN suspects_gym_info as t2
+		ON t1.id = t2.membership_id
+)
+
+SELECT *
+FROM interview as t1
+JOIN suspects_info as t2
+	ON t1.person_id = t2.person_id
+/* returns transcript of remaining suspects:
+	I was hired by a woman with a lot of money. 
+	I know she's around 5'5" (65") or 5'7"(67").
+	She has red hair and she drives a Tesla Model S. 
+	I know that she attended the SQL Symphony Concert 
+	3 times in December 2017.
+*/
+
+
