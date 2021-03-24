@@ -70,39 +70,6 @@ WHERE address_street_name = "Franklin Ave"
 
 
 SELECT *
-FROM facebook_event_checkin
-WHERE person_id = 118009
-	OR person_id = 16371
-
-/* returns facebook_event_checkin of second witness:
-	person_id = 16371
-	event_id = 4719
-	event_name = The Funky Grooves Tour	
-	date = 20180115
-*/
-
-
-
-SELECT *
-FROM drivers_license
-WHERE id = 118009
-	OR id = 16371
-
-/* returns drivers_liscence of first person:
-	id = 118009
-	age = 64
-	height = 84	
-	eye_color = blue
-	hair_color = white
-	gender = male
-	plate_number = 00NU00
-	car_make = Mercedes-Benz	
-	car_model = E-Class
-*/
-
-
-
-SELECT *
 from interview
 WHERE person_id = 118009
 	OR person_id = 16371
